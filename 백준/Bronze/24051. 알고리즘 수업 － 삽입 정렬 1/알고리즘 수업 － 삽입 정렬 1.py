@@ -1,30 +1,29 @@
 import sys
 input = sys.stdin.readline
-a, k = map(int, input().split())
-li= list(map(int, input().split()))
+n, k = map(int, input().split())
+list = list(map(int, input().split()))
 
-def insertion_sort(li):
-    n = len(li)
+def insertion_sort(list):
+    n=len(list)
     count = 0
-    k_ = 0
-    for i in range(1,n):
-        newItem = li[i]
+    result = -1
+
+    for i in range(1, n):
         loc = i-1
-        while loc >= 0 and newItem < li[loc]:
-            li[loc+1] = li[loc]
-            loc -= 1
+        newItem = list[i]
+        while 0<= loc and newItem < list[loc]:
+            list[loc+1] = list[loc]
+            loc -=1
             count += 1
             if count == k:
-                k_ = li[loc+1]
-        li[loc+1] = newItem
-        if loc + 1 != i:
-            count += 1 
-        if count == k:
-            k_ = li[loc+1]
+                result = list[loc+1]
 
-    if k>count:
-        print(-1)
-    else:
-        print(k_)
+        if loc+1 != i:
+            list[loc+1] = newItem
+            count +=1
+            if count == k:
+                result = list[loc+1]
 
-insertion_sort(li)
+    print(result)
+
+insertion_sort(list)

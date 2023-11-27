@@ -1,7 +1,5 @@
 #include <stdio.h>
  
-void calculateFibonacci(int N);
- 
 int main(void){
     int T;
     scanf("%d", &T);
